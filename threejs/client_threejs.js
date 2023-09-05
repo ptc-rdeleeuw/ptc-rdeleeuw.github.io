@@ -5,7 +5,266 @@ import {GLTFLoader} from "https://unpkg.com/three@0.156.1/examples/jsm/loaders/G
 import {ThreejsToolEngine3D, ThreejsEngine3D} from "/3d_protocol/ThreejsEngine3D.js";
 import {IFrameFactory} from "/3d_protocol/WorkerFactory.js";
 import {VRButton} from "https://unpkg.com/three@0.156.1/examples/jsm/webxr/VRButton.js";
-import initialWorld from "/metaverse.json" assert {type: "json" };
+
+let initialWorld = {
+    World: {
+        Meta: {
+            Type: "World"
+        },
+        Tools: {
+            BuoyA: {
+                Meta: {
+                    Type: "Tool",
+                    Url: "/tool_buoy/tool_buoy.html?letter=a"
+                },
+                Properties: {
+                    Scene: {
+                        Meta: {
+                            Type: "Object"
+                        },
+                        Properties: {
+                            Buoy: {
+                                Meta: {
+                                    Type: "Object.GLTF",
+                                    Url: "/models/flagab.glb"
+                                },
+                                Properties: {
+									Children: {
+										Meta: {
+											Type: "Object"
+										},
+										Properties: {
+											Sphere: {
+												Meta: {
+													Type: "Object"
+												},
+												Properties: {
+													Material: "Buoy.Sphere"
+												}
+											},
+											Cylinder: {
+												Meta: {
+													Type: "Object"
+												},
+												Properties: {
+													Material: "Buoy.Cylinder"
+												}
+											},
+											Plane001: {
+												Meta: {
+													Type: "Object"
+												},
+												Properties: {
+													Material: "Buoy.Plane001"
+												}
+											}
+										}
+									},
+                                    ModelMatrix: {
+                                        Meta: {
+                                            Type: "Array"
+                                        },
+                                        Values: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -1, 0, 1]
+                                    }
+                                }
+                            }
+                        }
+                    },
+					Materials: {
+						Meta: {
+							Type: "Object"
+						},
+						Properties: {
+							"Buoy.Sphere": {
+								Meta: {
+									Type: "Object"
+								},
+								Properties: {
+									colorTexture: {
+										Meta: {
+											Type: "Object"
+										},
+										Properties: {
+											texture: null
+										}
+									}
+								}
+							},
+							"Buoy.Cylinder": {
+								Meta: {
+									Type: "Object"
+								},
+								Properties: {
+									colorTexture: {
+										Meta: {
+											Type: "Object"
+										},
+										Properties: {
+											texture: null
+										}
+									}
+								}
+							},
+							"Buoy.Plane001": {
+								Meta: {
+									Type: "Object"
+								},
+								Properties: {
+									colorTexture: {
+										Meta: {
+											Type: "Object"
+										},
+										Properties: {
+											texture: "ICS_Alfa.png"
+										}
+									}
+								}
+							}
+						}
+					},
+					Textures: {
+						Meta: {
+							Type: "Object"
+						},
+						Properties: {
+							"ICS_Alfa.png": {
+								Meta: {
+									Type: "Texture.PNG",
+									Url: "/textures/ICS_Alfa.png"
+								}
+							}
+						}
+					}
+                }
+            },
+            BuoyB: {
+                Meta: {
+                    Type: "Tool.ptc.buoy",
+                    Url: "/tool_buoy/tool_buoy.html?letter=b"
+                },
+                Properties: {
+                    Scene: {
+                        Meta: {
+                            Type: "Object"
+                        },
+                        Properties: {
+                            Buoy: {
+                                Meta: {
+                                    Type: "Object.GLTF",
+                                    Url: "/models/flagab.glb"
+                                },
+                                Properties: {
+									Children: {
+										Meta: {
+											Type: "Object"
+										},
+										Properties: {
+											Sphere: {
+												Meta: {
+													Type: "Object"
+												},
+												Properties: {
+													Material: "Buoy.Sphere"
+												}
+											},
+											Cylinder: {
+												Meta: {
+													Type: "Object"
+												},
+												Properties: {
+													Material: "Buoy.Cylinder"
+												}
+											},
+											Plane001: {
+												Meta: {
+													Type: "Object"
+												},
+												Properties: {
+													Material: "Buoy.Plane001"
+												}
+											}
+										}
+									},
+                                    ModelMatrix: {
+                                        Meta: {
+                                            Type: "Array"
+                                        },
+                                        Values: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, -1, 0, 1]
+                                    }
+                                }
+                            }
+                        }
+                    },
+					Materials: {
+						Meta: {
+							Type: "Object"
+						},
+						Properties: {
+							"Buoy.Sphere": {
+								Meta: {
+									Type: "Object"
+								},
+								Properties: {
+									colorTexture: {
+										Meta: {
+											Type: "Object"
+										},
+										Properties: {
+											texture: null
+										}
+									}
+								}
+							},
+							"Buoy.Cylinder": {
+								Meta: {
+									Type: "Object"
+								},
+								Properties: {
+									colorTexture: {
+										Meta: {
+											Type: "Object"
+										},
+										Properties: {
+											texture: null
+										}
+									}
+								}
+							},
+							"Buoy.Plane001": {
+								Meta: {
+									Type: "Object"
+								},
+								Properties: {
+									colorTexture: {
+										Meta: {
+											Type: "Object"
+										},
+										Properties: {
+											texture: "ICS_Bravo.png"
+										}
+									}
+								}
+							}
+						}
+					},
+					Textures: {
+						Meta: {
+							Type: "Object"
+						},
+						Properties: {
+							"ICS_Bravo.png": {
+								Meta: {
+									Type: "Texture.PNG",
+									Url: "/textures/ICS_Bravo.png"
+								}
+							}
+						}
+					}
+                }
+            }
+        }
+    }
+};
 
 const gltfLoader = new GLTFLoader();
 
